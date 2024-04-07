@@ -1,0 +1,14 @@
+
+# Troubleshooting Parts
+
+--> During the predicting features in flask_app, we have to reshape 
+    into 2D array, even we are predicting just one sample 
+    bcz scikit-learn models are designed to handle multiple samples at once
+
+
+--> Some time We have to rename columns name to conviently work with 
+    dataset using pandas rename method
+
+--> To build the applications on models, we have to save the current state
+    of model using pickle module.
+    

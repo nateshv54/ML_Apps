@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Height_predictor</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: darkcyan;
+            flex-direction: row;
+            
+        }
+        .div1{
+            border: 2px solid black;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            background-color: wheat;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap:15px;
+        }
+        .form-group1{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+        }
+        label{
+            font-weight: bold;
+        }
+        input {
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <form action="" method="post">
+            <div class="form-group1">
+                <label for="Weight">Weight</label>
+                <input type="number" name="Weight" placeholder="weight(Kgs)">
+            </div>
+            <div class="button1">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+    {% if predicted_height %}
+    <div class="div2">
+        <h3>Predicted Height : {{predicted_height}} inches</h3>
+    </div>
+    {% endif %}
+
+    
+</body>
+</html>
