@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Price Prediction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Stock Price Prediction</h1>
+    <form id="prediction-form">
+        <label for="open">Open Price:</label>
+        <input type="text" id="open" name="open"><br><br>
+        <label for="high">High Price:</label>
+        <input type="text" id="high" name="high"><br><br>
+        <label for="low">Low Price:</label>
+        <input type="text" id="low" name="low"><br><br>
+        <label for="close">Close Price:</label>
+        <input type="text" id="close" name="close"><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    <div id="result"></div>
+    <script>
+        $(document).ready(function() {
+            $('#prediction-form').submit(function(event) {
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '/predict',
+                    data: form_data,
+                    success: function(response) {
+                        $('#result').html('<h2>Predicted Next Day Close Price: ' + response.prediction + '</h2>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
