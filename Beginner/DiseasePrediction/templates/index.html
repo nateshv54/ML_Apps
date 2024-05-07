@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Symptoms</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>Disease Predictor</h1>
+        <form action="/" method="post">
+            <label for="symptoms">Symptoms:</label><br>
+            <textarea id="symptoms" placeholder="Enter your symptoms" name="symptoms" rows="4" cols="45" required></textarea><br><br>
+            <input type="submit" value="Predict Disease">
+        </form>
+        {% if result %}
+        <div class="result">
+            <h2>Disease Details:</h2>
+            <p class="disease">Predicted Disease: {{ result }}</p>
+            <p class="confidence">Confidence Level: {{ confidence }}%</p>
+            <p class="cure">Cure: {{ cure }}</p>
+            {% if alert %}
+            <p style="color: red;">Risk of disease is high. Please consult a doctor.</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
